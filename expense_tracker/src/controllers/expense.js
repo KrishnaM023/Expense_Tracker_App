@@ -3,7 +3,7 @@ const User = require("../models/User");
 const sequelize = require("../utils/database");
 const AWS = require("aws-sdk");
 
-
+// Post Expense
 exports.postExpense = async (req, res) => {
   const { amount, description, category } = req.body;
   const t = await sequelize.transaction();
@@ -40,6 +40,7 @@ exports.postExpense = async (req, res) => {
   }
 };
 
+// Get Expense
 exports.getExpenses = async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
@@ -71,6 +72,7 @@ exports.getExpenses = async (req, res) => {
   }
 };
 
+// Delete Expense
 exports.deleteExpense = async (req, res) => {
   const t = await sequelize.transaction();
   const { id } = req.params;
@@ -113,6 +115,7 @@ exports.deleteExpense = async (req, res) => {
   }
 };
 
+// Upload Expense
 function uploadToS3(data, fileName) {
   return new Promise(function (resolve, reject) {
     let s3 = new AWS.S3({
@@ -142,6 +145,7 @@ function uploadToS3(data, fileName) {
   });
 }
 
+// Download Expense
 exports.downloadExpense = async (req, res) => {
   //get Data
   const expenses = await req.user.getExpenses();

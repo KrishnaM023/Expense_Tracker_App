@@ -8,6 +8,7 @@ const premiumController = require("../controllers/premium");
 //Middleware
 const Authenticate = require("../middleware/auth");
 
+// Leaderboard
 router.post(
   "/show-leaderboard",
   Authenticate,

@@ -6,6 +6,7 @@ const router = express.Router();
 
 const paymentController = require("../controllers/payment");
 
+// routes
 router.post("/createOrder", Authenticate, paymentController.createPayment);
 router.post("/updateOrder", Authenticate, paymentController.updatePayment);
 

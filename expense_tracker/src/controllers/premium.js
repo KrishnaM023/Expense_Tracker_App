@@ -1,6 +1,6 @@
 const User = require("../models/User");
 
-
+// leaderboard
 exports.showLeaderboard = async (req, res) => {
   try {
     const users = await User.findAll({

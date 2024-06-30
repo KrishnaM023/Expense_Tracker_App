@@ -31,6 +31,9 @@ app.get('/login', (req, res) => {
 User.hasMany(Expense);
 Expense.belongsTo(User);
 
+User.hasMany(Order);
+Order.belongsTo(User);
+
 sequelize.sync({ force: true })
   .then(() => {
     console.log('Database & tables created!');

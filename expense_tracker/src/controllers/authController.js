@@ -14,6 +14,8 @@ const authController = {
       res.status(500).json({ error: err.message });
     }
   },
+
+  // Login handling
   login: async (req, res) => {
     const { email, password } = req.body;
     try {

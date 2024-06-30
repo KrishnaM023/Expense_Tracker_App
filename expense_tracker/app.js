@@ -15,8 +15,12 @@ app.use(bodyParser.json());
 app.use('/auth', authRoutes);
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src', 'views', 'signup.html'));  // Use path.join to construct the correct file path
+  res.sendFile(path.join(__dirname, 'src', 'views', 'signup.html')); 
 });
+
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'src', 'views', 'login.html'));
+  });
 
 sequelize.sync({ force: true })
   .then(() => {

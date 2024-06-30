@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const authRoutes = require('./src/routes/authRoutes');
 const expenseRoutes = require('./src/routes/expense');
+const paymentRouter = require('./src/routes/payment')
 const path = require('path');  // Import the path module
 
 const sequelize = require('./src/config/db');
@@ -15,6 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use('/auth', authRoutes);
 app.use('/expense', expenseRoutes);
+app.use("/payment", paymentRouter);
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'src', 'views', 'signup.html')); 

@@ -145,7 +145,7 @@ function uploadToS3(data, fileName) {
   });
 }
 
-// Download Expense
+// Download Expense Report
 exports.downloadExpense = async (req, res) => {
   //get Data
   const expenses = await req.user.getExpenses();

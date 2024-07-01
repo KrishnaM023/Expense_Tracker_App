@@ -2,6 +2,7 @@ const Razorpay = require("razorpay");
 const Order = require("../models/order");
 const User = require("../models/User");
 
+// Updated Rozorpay
 const razorpayInstance = new Razorpay({
   key_id: process.env.RAZORPAY_KEY,
   key_secret: process.env.RAZORPAY_SECRET,
